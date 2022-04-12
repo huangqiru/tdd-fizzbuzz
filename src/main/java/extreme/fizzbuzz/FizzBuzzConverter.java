@@ -15,14 +15,18 @@ public class FizzBuzzConverter {
         String result = "";
 
 
+//        if (isContainBUZZ_NUM(number) && isContainWHIZZ_NUM(number) && isModByNumber(number, FIZZ_NUM)) {
+//            return FIZZ_STRING;
+//        }
+
         if (isContainFizzNum(number) && !isContainBUZZ_NUM(number)) {
             return FIZZ_STRING;
         }
 
-        if (isModByNumber(number, FIZZ_NUM) && !isContainBUZZ_NUM(number)) {
+        if (isModByNumber(number, FIZZ_NUM) && (!isContainBUZZ_NUM(number) || (isContainBUZZ_NUM(number) && isContainWHIZZ_NUM(number)))) {
             result += FIZZ_STRING;
         }
-        if (isModByNumber(number, BUZZ_NUM)) {
+        if (isModByNumber(number, BUZZ_NUM) && !isContainWHIZZ_NUM(number)) {
             result += BUZZ_STRING;
         }
         if (isModByNumber(number, WHIZZ_NUM)) {
@@ -58,7 +62,7 @@ public class FizzBuzzConverter {
 
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             System.out.println(i + ":" + say(i));
         }
     }

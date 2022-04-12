@@ -153,4 +153,46 @@ class FizzBuzzConverterTest {
         String result = converter.say(56);
         Assertions.assertEquals("Whizz", result);
     }
+
+    @Test
+    void should_return_origin_when_say_given_number_is_not_mod_by_3_5_7_and_contain_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(17);
+        Assertions.assertEquals("17", result);
+    }
+
+    @Test
+    void should_return_origin_when_say_given_number_is_mod_by_7_and_contain_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(7);
+        Assertions.assertEquals("Whizz", result);
+    }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_not_mod_by_3_5_7_and_contain_3_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(73);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_mod_by_3_5_and_contain_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(75);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_origin_when_say_given_number_is_mod_by_5_and_contain_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(170);
+        Assertions.assertEquals("170", result);
+    }
+
+    @Test
+    void should_return_FizzWhizz_when_say_given_number_is_mod_by_3_7_and_contain_3_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(357);
+        Assertions.assertEquals("FizzWhizz", result);
+    }
 }
