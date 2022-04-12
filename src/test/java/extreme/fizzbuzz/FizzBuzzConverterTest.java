@@ -97,4 +97,32 @@ class FizzBuzzConverterTest {
         String result = converter.say(210);
         Assertions.assertEquals("FizzBuzzWhizz", result);
     }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_not_mod_by_3_5_7_and_contain_3() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(13);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_mod_by_3_and_contain_3() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(3);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_mod_by_5_and_contain_3() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(130);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_Fizz_when_say_given_number_is_mod_by_7_and_contain_3() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(133);
+        Assertions.assertEquals("Fizz", result);
+    }
 }

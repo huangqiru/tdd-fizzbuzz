@@ -14,6 +14,10 @@ public class FizzBuzzConverter {
     public static String say(int number) {
         String result = "";
 
+        if (String.valueOf(number).contains(String.valueOf(FIZZ_NUM))) {
+            return FIZZ_STRING;
+        }
+
         if (isModByNumber(number, FIZZ_NUM)) {
             result += FIZZ_STRING;
         }
