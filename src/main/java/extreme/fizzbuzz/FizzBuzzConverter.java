@@ -14,19 +14,23 @@ public class FizzBuzzConverter {
     public static String say(int number) {
         String result = "";
 
-        if (number % 3 == 0) {
+        if (isModByNumber(number, FIZZ_NUM)) {
             result += FIZZ_STRING;
         }
-        if (number % 5 == 0) {
+        if (isModByNumber(number, BUZZ_NUM)) {
             result += BUZZ_STRING;
         }
-        if (number % 7 == 0) {
+        if (isModByNumber(number, WHIZZ_NUM)) {
             result += WHIZZ_STRING;
         }
         if (result.isEmpty()) {
             result += number;
         }
         return result;
+    }
+
+    private static boolean isModByNumber(int target, int divisor) {
+        return target % divisor == 0;
     }
 
 
