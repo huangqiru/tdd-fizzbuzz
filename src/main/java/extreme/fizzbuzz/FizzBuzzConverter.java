@@ -10,21 +10,24 @@ public class FizzBuzzConverter {
     public static final String FIZZ_STRING = "Fizz";
     public static final String BUZZ_STRING = "Buzz";
     public static final String WHIZZ_STRING = "Whizz";
-//
+
     public static String say(int number) {
+        String result = "";
+
         if (number % 3 == 0) {
-            return FIZZ_STRING;
+            result += FIZZ_STRING;
         }
         if (number % 5 == 0) {
-            return BUZZ_STRING;
+            result += BUZZ_STRING;
         }
         if (number % 7 == 0) {
-            return WHIZZ_STRING;
+            result += WHIZZ_STRING;
         }
-        return String.valueOf(number);
+        if (result.isEmpty()) {
+            result += number;
+        }
+        return result;
     }
-
-
 
 
     public static void main(String[] args) {

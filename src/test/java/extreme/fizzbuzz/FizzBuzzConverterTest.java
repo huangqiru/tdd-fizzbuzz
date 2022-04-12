@@ -69,4 +69,32 @@ class FizzBuzzConverterTest {
         String result = converter.say(14);
         Assertions.assertEquals("Whizz", result);
     }
+
+    @Test
+    void should_return_FizzBuzz_when_say_given_number_is_mod_by_3_5_and_not_contain_3_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(60);
+        Assertions.assertEquals("FizzBuzz", result);
+    }
+
+    @Test
+    void should_return_FizzWhizz_when_say_given_number_is_mod_by_3_7_and_not_contain_3_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(21);
+        Assertions.assertEquals("FizzWhizz", result);
+    }
+
+    @Test
+    void should_return_BuzzWhizz_when_say_given_number_is_mod_by_5_7_and_not_contain_3_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(140);
+        Assertions.assertEquals("BuzzWhizz", result);
+    }
+
+    @Test
+    void should_return_FizzBuzzWhizz_when_say_given_number_is_mod_by_3_5_7_and_not_contain_3_5_7() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(210);
+        Assertions.assertEquals("FizzBuzzWhizz", result);
+    }
 }
