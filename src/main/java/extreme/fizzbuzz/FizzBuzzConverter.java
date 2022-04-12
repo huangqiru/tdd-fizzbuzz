@@ -14,22 +14,17 @@ public class FizzBuzzConverter {
     public static String say(int number) {
         String result = "";
 
-
-//        if (isContainBUZZ_NUM(number) && isContainWHIZZ_NUM(number) && isModByNumber(number, FIZZ_NUM)) {
-//            return FIZZ_STRING;
-//        }
-
         if (isContainFizzNum(number) && !isContainBUZZ_NUM(number)) {
             return FIZZ_STRING;
         }
 
-        if (isModByNumber(number, FIZZ_NUM) && (!isContainBUZZ_NUM(number) || (isContainBUZZ_NUM(number) && isContainWHIZZ_NUM(number)))) {
+        if (isModByFIZZ_NUM(number) && (!isContainBUZZ_NUM(number) || isContainBUZZ_NUM_AND_WHIZZ_NUM(number))) {
             result += FIZZ_STRING;
         }
-        if (isModByNumber(number, BUZZ_NUM) && !isContainWHIZZ_NUM(number)) {
+        if (isModByBUZZ_NUM(number) && !isContainWHIZZ_NUM(number)) {
             result += BUZZ_STRING;
         }
-        if (isModByNumber(number, WHIZZ_NUM)) {
+        if (isModByWHIZZ_NUM(number)) {
             result += WHIZZ_STRING;
         }
 
@@ -37,6 +32,22 @@ public class FizzBuzzConverter {
             result += number;
         }
         return result;
+    }
+
+    private static boolean isContainBUZZ_NUM_AND_WHIZZ_NUM(int number) {
+        return isContainBUZZ_NUM(number) && isContainWHIZZ_NUM(number);
+    }
+
+    private static boolean isModByFIZZ_NUM(int number) {
+        return isModByNumber(number, FIZZ_NUM);
+    }
+
+    private static boolean isModByBUZZ_NUM(int number) {
+        return isModByNumber(number, BUZZ_NUM);
+    }
+
+    private static boolean isModByWHIZZ_NUM(int number) {
+        return isModByNumber(number, WHIZZ_NUM);
     }
 
     private static boolean isContainFizzNum(int number) {
@@ -54,7 +65,6 @@ public class FizzBuzzConverter {
     private static boolean isContainTargetNumber(int number, int targetNumber) {
         return String.valueOf(number).contains(String.valueOf(targetNumber));
     }
-
 
     private static boolean isModByNumber(int target, int divisor) {
         return target % divisor == 0;
