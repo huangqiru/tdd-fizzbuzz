@@ -14,11 +14,12 @@ public class FizzBuzzConverter {
     public static String say(int number) {
         String result = "";
 
-        if (String.valueOf(number).contains(String.valueOf(FIZZ_NUM))) {
+
+        if (isContainFizzNum(number) && !isContainBUZZ_NUM(number)) {
             return FIZZ_STRING;
         }
 
-        if (isModByNumber(number, FIZZ_NUM)) {
+        if (isModByNumber(number, FIZZ_NUM) && !isContainBUZZ_NUM(number)) {
             result += FIZZ_STRING;
         }
         if (isModByNumber(number, BUZZ_NUM)) {
@@ -27,11 +28,29 @@ public class FizzBuzzConverter {
         if (isModByNumber(number, WHIZZ_NUM)) {
             result += WHIZZ_STRING;
         }
+
         if (result.isEmpty()) {
             result += number;
         }
         return result;
     }
+
+    private static boolean isContainFizzNum(int number) {
+        return isContainTargetNumber(number, FIZZ_NUM);
+    }
+
+    private static boolean isContainBUZZ_NUM(int number) {
+        return isContainTargetNumber(number, BUZZ_NUM);
+    }
+
+    private static boolean isContainWHIZZ_NUM(int number) {
+        return isContainTargetNumber(number, WHIZZ_NUM);
+    }
+
+    private static boolean isContainTargetNumber(int number, int targetNumber) {
+        return String.valueOf(number).contains(String.valueOf(targetNumber));
+    }
+
 
     private static boolean isModByNumber(int target, int divisor) {
         return target % divisor == 0;

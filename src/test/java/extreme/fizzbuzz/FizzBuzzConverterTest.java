@@ -24,7 +24,7 @@ Given 报数 133, mod by 7, and contain 3, when 打印 then 输出 "Fizz"
 Given 报数 15, mod by 3,5 and contain 5, when 打印 then 输出 "Buzz"
 Given 报数 35, mod by 5,7, and contain 3,5,  when 打印 then 输出 "BuzzWhizz"
 Given 报数 51, mod by 3, and contain 5,  when 打印 then 输出 "51"
-Given 报数 133, mod by 7, and contain 3, when 打印 then 输出 "Whizz"
+Given 报数 56, mod by 7, and contain 5, when 打印 then 输出 "Whizz"
 
 包含7
 Given 报数 17, no mod by 3,5,7 and contain 7, when 打印 then 输出 "17"
@@ -124,5 +124,33 @@ class FizzBuzzConverterTest {
         FizzBuzzConverter converter = new FizzBuzzConverter();
         String result = converter.say(133);
         Assertions.assertEquals("Fizz", result);
+    }
+
+    @Test
+    void should_return_Buzz_when_say_given_number_is_mod_by_3_5_and_contain_5() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(15);
+        Assertions.assertEquals("Buzz", result);
+    }
+
+    @Test
+    void should_return_BuzzWhizz_when_say_given_number_is_mod_by_5_7_and_contain_3_5() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(35);
+        Assertions.assertEquals("BuzzWhizz", result);
+    }
+
+    @Test
+    void should_return_origin_when_say_given_number_is_mod_by_3_and_contain_5() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(51);
+        Assertions.assertEquals("51", result);
+    }
+
+    @Test
+    void should_return_Whizz_when_say_given_number_is_mod_by_7_and_contain_5() {
+        FizzBuzzConverter converter = new FizzBuzzConverter();
+        String result = converter.say(56);
+        Assertions.assertEquals("Whizz", result);
     }
 }
